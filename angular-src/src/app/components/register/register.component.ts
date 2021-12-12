@@ -52,6 +52,19 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
+    
+
+
+
+    // Validate Email
+    if (!this.validateService.validateEmail(this.email)) {
+      this.flashMessage.show('유효한 이메일주소를 입력하세요', {
+        cssClass: 'alert-danger',
+        timeout: 3000,
+      });
+      return false;
+    }
+
     var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
 
     if(!regExp.test(this.phone)){
@@ -63,17 +76,6 @@ export class RegisterComponent implements OnInit {
       });
     return false;
       
-    }
-
-
-
-    // Validate Email
-    if (!this.validateService.validateEmail(this.email)) {
-      this.flashMessage.show('유효한 이메일주소를 입력하세요', {
-        cssClass: 'alert-danger',
-        timeout: 3000,
-      });
-      return false;
     }
 
     
