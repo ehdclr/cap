@@ -1,0 +1,20 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+  rel="stylesheet"
+/>
+
+<nav class="navbar">
+  <div class="navbar_logo">
+    <a href="index.html">R.S.T</a>
+  </div>
+
+  <ul class="navbar_link">
+    <li *ngIf="!checkLoggedIn()"><a routerLink="/login">login</a></li>
+    <li *ngIf="checkLoggedIn()">
+      <a (click)="onLogoutClick()" href="#">logout</a>
+    </li>
+    <li *ngIf="!checkLoggedIn()"><a routerLink="/register">register</a></li>
+  </ul>
+</nav>

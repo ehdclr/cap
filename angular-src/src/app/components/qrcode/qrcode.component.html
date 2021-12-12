@@ -1,0 +1,93 @@
+<div id="con">
+  <div id="login">
+    <div id="login_form">
+      <form>
+        <h3 class="login" style="letter-spacing: -1px">Reservation</h3>
+
+        <hr />
+        <label>
+          <p class="p2">식당 이름</p>
+          <!-- <input type="text" placeholder="식당 이름" class="size"> -->
+          <p></p>
+          <select class="size num3">
+            <option value="1" selected>식당이름1</option>
+            <option value="2" selected>식당이름2</option>
+            <option value="3" selected>식당이름3</option>
+          </select>
+        </label>
+
+        <label>
+          <p class="p1">이름</p>
+          <input type="password" placeholder="이름" class="size" />
+        </label>
+
+        <label>
+          <p class="p1">전화번호</p>
+          <select class="size num1">
+            <option value="1" selected>SKT</option>
+            <option value="2" selected>KT</option>
+            <option value="3" selected>LG</option>
+          </select>
+          <input
+            placeholder="-빼고 숫자만 입력"
+            class="size num2"
+            required
+            type="tel"
+          />
+        </label>
+
+        <label>
+          <p class="p1">예약날짜</p>
+          <!-- <input type="text" placeholder="00-00-00" class="size"> -->
+          <!-- <label for="" class="size">예약날짜 :  -->
+          <input type="date" class="size" />
+        </label>
+
+        <br />
+        <p>
+          <input
+            type="submit"
+            (click)="clickedModal()"
+            value="예약하기"
+            class="btn"
+          />
+        </p>
+      </form>
+
+      <hr />
+    </div>
+    <div></div>
+
+    <!-- Modal -->
+    <div
+      [ngClass]="modal ? 'modal fade show d-block' : 'modal fade'"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              실시간 웨이팅 현황
+            </h5>
+          </div>
+          <div class="modal-body">
+            <p>QR</p>
+            <p>대기현황</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="clickedModalClose()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div id="con">
+  <div id="login">
+    <div id="login_form">
+      <h2 class="login" style="letter-spacing: -1px">최종장박봉</h2>
+      <form (ngSubmit)="onRegisterSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1"> Name</label>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail1"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail3">Id</label>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail3"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail4">Password</label>
+          <input
+            type="password"
+            [(ngModel)]="password1"
+            [ngModelOptions]="{
+              standalone: true
+            }"
+            class="form-control"
+            id="exampleInputEmail4"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail5">Password Check</label>
+          <input
+            type="password"
+            [(ngModel)]="password2"
+            [ngModelOptions]="{
+              standalone: true
+            }"
+            class="form-control"
+            id="exampleInputEmail5"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail2">Email</label>
+          <input
+            type="email"
+            [(ngModel)]="email"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail2"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail7">Phone Number</label> &nbsp;
+          <select class="size num1">
+            <option value="1" selected>SKT</option>
+            <option value="2" selected>KT</option>
+            <option value="3" selected>LG</option>
+          </select>
+          <input
+            type="text"
+            [(ngModel)]="phone"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail7"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail6">Corporate registration number</label>
+          <input
+            type="text"
+            [(ngModel)]="corporate"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail6"
+          />
+        </div>
+        <br />
+
+        <input type="submit" class="btn btn-primary" value="Create Acoout" />
+      </form>
+      <hr />
+      <p class="find">
+        <span><a routerLink="/login">로그인 페이지로 이동</a></span>
+      </p>
+    </div>
+  </div>
+</div>

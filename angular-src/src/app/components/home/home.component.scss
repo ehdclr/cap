@@ -1,0 +1,68 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#con {
+  width: 100%;
+  height: 111%; /*화면색 길이*/
+  background-image: url("b.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 7.7%;
+  text-align: center;
+  font-family: "Montagu Slab", serif;
+  font-size: 50px;
+}
+.button {
+  margin-top: 25%;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+}
+
+/* 버튼 */
+.btn {
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  padding: 20px 30px 20px 30px;
+  margin-left: auto;
+  margin-right: 5%;
+  display: inline-block;
+  border-radius: 10px;
+  transition: all 0.1s;
+  text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+  font-family: "Lobster", cursive;
+}
+/*버튼 움직임 */
+.btn:active {
+  transform: translateY(3px);
+}
+
+/* 파란 버튼 */
+.btn.blue {
+  background-color: #3b71af;
+  border-bottom: 5px solid #053061;
+}
+
+.btn.blue:active {
+  border-bottom: 2px solid #053061;
+}
+
+/* 빨간 버튼 */
+.btn.red {
+  background-color: #ebbf48;
+  border-bottom: 5px solid #d8a416;
+}
+
+.btn.red:active {
+  border-bottom: 2px solid #d8a416;
+}

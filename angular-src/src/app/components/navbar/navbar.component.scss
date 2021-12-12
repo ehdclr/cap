@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  background-color: #f7f6ee;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(226, 226, 207);
+  padding: 1px 12px;
+}
+
+.navbar_logo {
+  font-size: 36px;
+  color: white;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+  background-color: #126e6e;
+  border-radius: 4px;
+}
+
+.navbar_link {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.navbar_link li {
+  padding: 8px 12px;
+}
+
+.navbar_link li:hover {
+  background-color: #126e6e;
+  border-radius: 4px;
+}
+
+.top {
+  height: 100%;
+  background-color: #f7f6ee;
+}
+
+.header {
+  margin-block-start: 0%;
+  text-align: center;
+}
+h2 {
+  margin-top: 10px;
+}
+
+.QR {
+  margin: auto;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  color: white;
+}
+
+.people {
+  margin: auto;
+  text-align: center;
+  height: 100px;
+  width: 400px;
+  background-color: #f2670d;
+  color: white;
+}
+
+.circle {
+  margin: auto;
+  text-align: center;
+  height: 100px;
+  width: 400px;
+  background-color: #723111;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+  }
+
+  .navbar_menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar_menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar_link {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar_link li {
+    width: 100%;
+    text-align: center;
+  }
+}
+/*  */

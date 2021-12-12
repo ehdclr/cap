@@ -1,0 +1,115 @@
+<div id="con">
+  <div id="login">
+    <div id="login_form">
+      <form>
+        <h3 class="login" style="letter-spacing: -1px">Store</h3>
+        <hr />
+
+        <label>
+          <p style="text-align: center; font-size: 12px; color: #666">
+            QR 스캔
+          </p>
+          <br/>
+
+          <canvas id ="scan-canvas" hidden="false" ></canvas>
+
+          <input class="QR_size" disabled />
+        </label>
+
+        <label>
+          <div style="text-align: center; font-size: 12px; color: #666">
+            대기인원
+          </div>
+          <input class="size num2" disabled />
+          <table class ="type1">
+            <thead>
+              <tr>
+              
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Date</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users ">
+                <td>{{ user.name }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.date }}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+        
+        </label>
+
+        <div class="pt-4">
+          <button
+            class="btn btn-danger"
+            (click)="clickedModal()"
+            id="modal_btn"
+          >
+            대기관리
+          </button>
+        </div>
+      </form>
+
+      <!-- Modal -->
+      <div
+        [ngClass]="modal ? 'modal fade show d-block' : 'modal fade'"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" class>대기현황</h5>
+            </div>
+            <table class ="type1">
+              <thead>
+                <tr>
+                
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Date</th>
+                  <th>취소</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>{{ user.date }}</td>
+                  <td>
+                    
+                    
+                    <button
+                      (click)="deleteCustomer(user._id)"
+                      class="wait_cancel"
+                    >
+                      취소
+                    </button>
+                  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                id= "second"
+                (click)="clickedModalClose()"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

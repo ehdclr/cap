@@ -1,0 +1,39 @@
+<div id="con">
+  <div id="login">
+    <div id="login_form">
+      <h2 class="page-header">로그인 | Login</h2>
+      <br />
+      <form (ngSubmit)="onLoginSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail3">Username</label>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail3"
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail4">Password</label>
+          <input
+            type="password"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="exampleInputEmail4"
+          />
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Sign in" />
+      </form>
+      <hr />
+      <p class="find">
+        <span><a href="">아이디 찾기</a></span>
+        <span><a href="">비밀번호 찾기</a></span>
+        <span><a routerLink="/register">회원가입</a></span>
+      </p>
+    </div>
+  </div>
+</div>

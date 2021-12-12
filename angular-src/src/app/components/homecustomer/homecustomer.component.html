@@ -1,0 +1,265 @@
+<!-- <p>손님용</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+    </tr>
+  </tbody>
+</table> -->
+<div id="con">
+  <div id="login">
+    <div id="login_form">
+      <h2 class="login">예약하기</h2>
+      <label>
+        <p class="p2">식당 이름</p>
+        <!-- <input type="text" placeholder="식당 이름" class="size"> -->
+        <p></p>
+        <select class="size num3">
+          <option value="1" selected>식당이름1</option>
+          <option value="2" selected>식당이름2</option>
+          <option value="3" selected>식당이름3</option>
+        </select>
+      </label>
+      <form (ngSubmit)="onReserveSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="p1"> 이름 </label><br />
+          <input
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            class="size"
+            id="exampleInputEmail1"
+          />
+          
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail2" class="p1">전화번호</label><br />
+          <select class="size num1">
+            <option value="1" selected>SKT</option>
+            <option value="2" selected>KT</option>
+            <option value="3" selected>LG</option>
+          </select>
+          <input
+            type="text"
+            [(ngModel)]="phone"
+            [ngModelOptions]="{ standalone: true }"
+            class="size num2"
+            id="exampleInputEmail2"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail3" class="p1">예약날짜</label><br />
+          <input
+            type="date"
+            [(ngModel)]="date"
+            [ngModelOptions]="{ standalone: true }"
+            class="size"
+            id="exampleInputEmail3"
+          />
+        </div>
+        <br />
+        <input
+          type="submit"
+          (click)="clickedModal()"
+          class="btn btn-primary"
+          value="예약"
+        />
+        
+        
+      </form>
+      
+      <br/>
+      <input
+          type="submit"
+          (click)="clickedModal2()"
+          class="btn btn-primary"
+          value="예약정보 및 대기리스트"
+        />
+      
+
+      <!-- Modal -->
+      <div
+        [ngClass]="modal ? 'modal fade show d-block' : 'modal fade'"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                실시간 웨이팅 현황
+              </h5>
+            </div>
+            <div class="modal-body">
+              <div id = "container">
+                <div id="block">
+                  <h2 class="Qrcode">QRCODE</h2>
+                    <ul class="list-group">
+                        <h4>{{name}}님의 QRCODE</h4>
+                        <li> 전화번호: {{phone}}</li>
+                                            
+                    </ul>
+                    <ul class="list-group" *ngIf=>
+                      <h4>{{name}}님의 QRCODE</h4>
+                      <li> 전화번호: {{phone}}</li>
+                                          
+                  </ul>
+                    
+
+
+                    <br/>
+                    <div>
+                      
+                    
+                  </div >
+                  <ngx-qrcode [value] ="customerQrcode" [width]="200"></ngx-qrcode>
+                  
+                    
+                  
+                </div>
+  
+  
+  
+              </div>
+              <p>대기현황</p>
+              <div class="table ">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  
+                  <th>Phone</th>
+                    
+                  <th>Date</th>
+                </tr>
+              </thead>
+             
+               <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.phone }}</td>
+                  <td>{{ user.date }}</td>
+                  </tr>
+                  </tbody>
+            
+          </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="second"
+                (click)="clickedModalClose()"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 -->
+<div
+[ngClass]="modal2 ? 'modal fade show d-block' : 'modal fade'"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel2"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel2">
+        실시간 웨이팅 현황
+      </h5>
+    </div>
+    <div class="modal-body">
+      <div id = "container">
+        <div id="block">
+          <form (ngSubmit)="checkReserve()">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="p1"> 예약한 전화번호 </label><br />
+              <input
+                type="text"
+                [(ngModel)]="reservePhone"
+                [ngModelOptions]="{ standalone: true }"
+                class="size"
+                id="exampleInputEmail1"
+              />
+              <input
+              type="submit"
+             
+             class="btn btn-primary"
+             value="예약 정보 확인 및 QR코드"
+               />
+              
+
+
+
+              
+            </div>
+            
+
+            </form>
+            <br/>
+            <div>
+              
+            
+          </div >
+          <ngx-qrcode [value] ="customerQrcode2" [width]="200"></ngx-qrcode>
+
+            
+          <p>대기현황</p>
+      <div class="table ">
+      <thead>
+        <tr>
+          <th>Name</th>
+          
+          <th>Phone</th>
+            
+          <th>Date</th>
+        </tr>
+      </thead>
+     
+       <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.date }}</td>
+          </tr>
+          </tbody>
+        </div>
+
+
+
+      </div>
+      
+    
+  </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="second"
+        (click)="clickedModalClose2()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
