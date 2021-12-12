@@ -74,7 +74,7 @@
                   <th>Name</th>
                   <th>Phone</th>
                   <th>Date</th>
-                  <th>취소</th>
+                  <th>&nbsp;취소</th>
                 </tr>
               </thead>
               <tbody>
@@ -85,11 +85,9 @@
                   <td>
                     
                     
-                    <button
-                      (click)="deleteCustomer(user._id)"
-                      class="wait_cancel"
-                    >
-                      취소
+                    <button type="button" class="btn btn-primary"
+                      (click)="deleteCustomer(user._id)" id="bttn">
+                    X
                     </button>
                   
                   </td>

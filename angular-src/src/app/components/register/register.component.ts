@@ -35,6 +35,38 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
+    //validate password
+    if (this.password1.length < 8 || this.password1.length > 20) {
+      this.flashMessage.show('비밀번호를 8자리 ~ 20자리 이내로 입력해주세요.', {
+        cssClass: 'alert-danger',
+        timeout: 3000,
+      });
+      console.log("비밀번호를 8자리 ~ 20자리 이내로 입력해주세요.")
+      return false;
+    } else if (this.password1.search(/\s/) != -1) {
+      this.flashMessage.show('비밀번호는 공백 없이 입력해주세요.', {
+        cssClass: 'alert-danger',
+        timeout: 3000,
+      });
+      console.log("비밀번호를 8자리 ~ 20자리 이내로 입력해주세요.")
+      return false;
+    }
+
+    var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+
+    if(!regExp.test(this.phone)){
+      
+
+      this.flashMessage.show('올바른 전화번호를 입력해주세요.', {
+        cssClass: 'alert-danger',
+        timeout: 3000,
+      });
+    return false;
+      
+    }
+
+
+
     // Validate Email
     if (!this.validateService.validateEmail(this.email)) {
       this.flashMessage.show('유효한 이메일주소를 입력하세요', {
@@ -43,6 +75,9 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
+
+    
+
     // 사용자의 JSON 객체 생성
     const user = {
       name: this.name,
@@ -79,4 +114,7 @@ export class RegisterComponent implements OnInit {
     });
     console.log('검증완료');
   }
+
+
+ 
 }

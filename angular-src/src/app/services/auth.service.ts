@@ -23,19 +23,21 @@ export class AuthService {
 
   prepEndpoint(ep) {
     // 1. 로컬 서버에서 개발시
-    return 'http://localhost:4000/' + ep;
+    // return 'http://localhost:4000/' + ep;
 
     // // 2. 클라우드 서버에서 운영시
-    // return ep;
+    return ep;
   }
 
   //회원가입
   registerUser(user: User): Observable<any> {
-    const registerUrl = 'http://localhost:4000/users/register';
+    // const registerUrl = 'http://localhost:4000/users/register';
+    const registerUrl = this.prepEndpoint('users/register');
     return this.http.post<any>(registerUrl, user, httpOptions);
   }
   authenticateUser(login: Login): Observable<any> {
-    const loginUrl = 'http://localhost:4000/users/authenticate';
+    // const loginUrl = 'http://localhost:4000/users/authenticate';
+    const loginUrl = this.prepEndpoint('users/authenticate');
     return this.http.post<any>(loginUrl, login, httpOptions);
   }
   storeUserData(token: any, userNoPW: UserNoPW) {
@@ -44,7 +46,8 @@ export class AuthService {
   }
   //예약하기
   reserveUser(reuser: reUser): Observable<any> {
-    const reregisterUrl = 'http://localhost:4000/users/homecustomer';
+    // const reregisterUrl = 'http://localhost:4000/users/homecustomer';
+    const reregisterUrl = this.prepEndpoint('users/homecustomer');
     return this.http.post<any>(reregisterUrl, reuser, httpOptions);
   }
 
@@ -63,7 +66,8 @@ export class AuthService {
         Authorization: 'Bearer ' + authToken,
       }),
     };
-    const profileUrl = 'http://localhost:4000/users/profile';
+    // const profileUrl = 'http://localhost:4000/users/profile';
+    const profileUrl = this.prepEndpoint('users/profile');
     return this.http.get<any>(profileUrl, httpOptions1);
   }
 
@@ -81,7 +85,8 @@ export class AuthService {
         
       }),
     };
-    const listUrl = 'http://localhost:4000/users/homecustomer';
+    // const listUrl = 'http://localhost:4000/users/homecustomer';
+    const listUrl = this.prepEndpoint('users/homecustomer');
     return this.http.get(listUrl, httpOptions1);
   }
 
@@ -99,7 +104,8 @@ export class AuthService {
             }),
           };
 
-    const customerinfoUrl = 'http://localhost:4000/users/customer_reserve';
+    // const customerinfoUrl = 'http://localhost:4000/users/customer_reserve';
+    const customerinfoUrl = this.prepEndpoint('users/customer_reserve');
     return this.http.get<any>(customerinfoUrl, httpOptions1);
   }
 
@@ -111,13 +117,15 @@ export class AuthService {
   // }
 
   deleteCustomer_1(id: string){
-    const reregisterUrl = 'http://localhost:4000/users/homecustomer/';
+    // const reregisterUrl = 'http://localhost:4000/users/homecustomer/';
+    const reregisterUrl = this.prepEndpoint('users/homecustomer/');
     return this.http.delete<reUser>(reregisterUrl +`${id}`, httpOptions).subscribe();
   }
 
   //QR 등록
   authenticateQRcustomer(request): Observable<any> {
-    const loginUrl= 'http://localhost:4000/users/QRcustomers';
+    // const loginUrl= 'http://localhost:4000/users/QRcustomers';
+    const loginUrl = this.prepEndpoint('users/QRcustomers');
     return this.http.post(loginUrl, request, httpOptions);
   }
 
